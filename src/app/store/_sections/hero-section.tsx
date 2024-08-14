@@ -10,31 +10,12 @@ import { Button } from "~/components/ui/button";
 import {
 	Sheet,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
 } from "~/components/ui/sheet";
+import { featuredCollectionsRoutes } from "~/config/routes";
 import { cn } from "~/lib/utils";
-
-const featuredCollectionsLinks = [
-	{
-		label: "Belts",
-		href: "/store",
-	},
-	{
-		label: "Men's Wallets",
-		href: "/store/products",
-	},
-	{
-		label: "Luggage & Bags",
-		href: "/store/products",
-	},
-	{
-		label: "Splender Series",
-		href: "/store/products",
-	},
-];
 
 export function HeroSection() {
 	const section = useRef(null);
@@ -78,19 +59,19 @@ export function HeroSection() {
 				<nav className={cn("opacity-0 flex justify-between py-4 px-8")}>
 					<h1 className={cn("text-3xl")}>Stichlore.</h1>
 					<ul className={cn("flex gap-6 items-center")}>
-						{featuredCollectionsLinks.map(({ label, href }) => (
+						{featuredCollectionsRoutes.map(({ label, href }) => (
 							<li
-								key={href}
+								key={href()}
 								id="featured-collections-link"
 								className={cn(
 									"opacity-0 group flex gap-1 flex-col items-center text-lg",
 								)}
 							>
-								<Link href={href}>{label}</Link>
+								<Link href={href()}>{label()}</Link>
 								<span
 									className={cn(
 										"opacity-0 transition-all duration-500 w-1 h-1 bg-white rounded-full",
-										pathname === href && "opacity-100",
+										pathname === href() && "opacity-100",
 										"group-hover:opacity-100",
 									)}
 								/>
