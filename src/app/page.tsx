@@ -1,23 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { toast } from "sonner";
 import { Button } from "~/components/ui/button";
-import { doSmth } from "~/server/doSmth";
 
 export default function HomePage() {
-	const [users, setUsers] = useState([]);
+  useEffect(() => {
+    console.log("Hello world!");
+    toast("Hello world!");
+  }, []);
 
-	useEffect(() => {
-		(async () => {
-			const fetchedUsers = await doSmth();
-			setUsers(fetchedUsers);
-		})();
-	}, []);
-
-	return (
-		<main>
-			<article>{JSON.stringify(users, null, 2)}</article>
-			<Button>Click me</Button>
-		</main>
-	);
+  return (
+    <main>
+      <Button variant={"destructive"}>Click me</Button>
+    </main>
+  );
 }

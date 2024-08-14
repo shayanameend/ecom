@@ -5,5 +5,5 @@ import { usersTable } from "~/models/user";
 export const selectUserValidator = createSelectSchema(usersTable);
 export const insertUserValidator = createInsertSchema(usersTable);
 
-export type SelectUser = zod.infer<typeof selectUserValidator>;
-export type InsertUser = zod.infer<typeof insertUserValidator>;
+export type SelectUserType = zod.infer<typeof selectUserValidator>;
+export type InsertUserType = zod.infer<typeof insertUserValidator>;
