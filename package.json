@@ -12,6 +12,7 @@
 		"biome:safe": "biome check --write",
 		"biome:force": "biome check --write --unsafe"
 	},
+	"packageManager": "pnpm@9.7.1",
 	"dependencies": {
 		"@gsap/react": "^2.1.1",
 		"@hookform/resolvers": "^3.9.0",
